@@ -159,7 +159,9 @@ public class form extends javax.swing.JFrame {
             String output = aes.Encrypt();
             long endTime = System.currentTimeMillis();
             long t = endTime - startTime;
-            JOptionPane.showMessageDialog(null,"AES Encrypted Output:"+output+"\nTime:"+t+"ms");
+            System.out.println("AES Encrypted Output:"+output+"\nTime:"+t+"ms");
+            JOptionPane.showMessageDialog(null,"Ok!");
+
         } catch(Exception e){
             JOptionPane.showMessageDialog(null,e);
         }
@@ -190,7 +192,8 @@ public class form extends javax.swing.JFrame {
             String output = aes.Decrypt();
             long endTime = System.currentTimeMillis();
             long t = endTime - startTime;
-            JOptionPane.showMessageDialog(null,"AES Decrypted Output:"+output+"\nTime:"+t+"ms");
+            System.out.println("AES Decrypted Output:"+output+"\nTime:"+t+"ms");
+            JOptionPane.showMessageDialog(null,"Ok!");
         } catch(Exception e){
             JOptionPane.showMessageDialog(null,e);
         }
