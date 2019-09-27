@@ -8,6 +8,7 @@ package aes;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
 import java.util.logging.Level;
@@ -158,10 +159,12 @@ public class form extends javax.swing.JFrame {
         try {
             String output = aes.Encrypt();
             long endTime = System.currentTimeMillis();
+            FileWriter writer = new FileWriter(pathName.getText());
+            writer.write(output);
             long t = endTime - startTime;
-            System.out.println("AES Encrypted Output:"+output+"\nTime:"+t+"ms");
-            JOptionPane.showMessageDialog(null,"Ok!");
-
+            writer.flush();
+            writer.close();
+            JOptionPane.showMessageDialog(null,"Encrypted! Time:" + t + "ms");
         } catch(Exception e){
             JOptionPane.showMessageDialog(null,e);
         }
@@ -191,9 +194,12 @@ public class form extends javax.swing.JFrame {
         try {
             String output = aes.Decrypt();
             long endTime = System.currentTimeMillis();
+            FileWriter writer = new FileWriter(pathName.getText());
+            writer.write(output);
             long t = endTime - startTime;
-            System.out.println("AES Decrypted Output:"+output+"\nTime:"+t+"ms");
-            JOptionPane.showMessageDialog(null,"Ok!");
+            writer.flush();
+            writer.close();
+            JOptionPane.showMessageDialog(null,"Decrypted! Time:" + t + "ms");
         } catch(Exception e){
             JOptionPane.showMessageDialog(null,e);
         }
